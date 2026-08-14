@@ -1,0 +1,486 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/*header*/
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: rgb(253, 249, 249);
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 50px; 
+}
+
+nav a {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo {
+  width: 120px;
+  height: auto;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  width: 800px;
+  min-height: 50px;
+}
+.search-input {
+  font-size: 15px;
+  font-weight:400 ;
+  width: 100%;
+  height: 60%;
+  border: 2px solid;
+  padding: 0 15px;
+ border-radius: 5px;
+ border-color: rgb(232, 167, 45);
+}
+
+.search-image {
+  width: 35px;
+  height: 35px;
+  padding: 10px;
+  background-color: rgb(242, 133, 74);
+}
+
+.open-logo {
+  width: 30px;
+  height: 30px;
+}
+
+.open {
+  font-size: 12px;
+  font-family: sans-serif;
+  font-weight: 800;
+  color: rgb(1, 72, 9);
+}
+
+.cart-logo{
+  width:35px;
+  height: 35px;
+}
+
+/*end of header's styling*/
+
+/*wel-cov styling*/
+
+.wel-cov {
+  display: flex;
+  background-color: rgb(14, 11, 11);
+  align-items: center;
+  gap: 50px;
+}
+
+.welcome {
+  
+  text-align: left;
+  width: 50%;
+  padding: 40px;
+}
+
+ h1 {
+  color: rgb(245, 245, 141);
+  padding-top: 2px;
+  line-height: 1.5;
+  padding-bottom: 2px;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 35px;
+max-width: 400px;
+ }
+
+ .welcome-p1 {
+  color: #F9D71C;
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 1.6;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  max-width: 450px;
+ }
+
+ .welcome-p2 {
+  color: yellow; 
+  font-size: 18px;
+  font-weight: 500;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  padding: 2px 0 0 2px;
+ }
+
+.shop-now {
+  background-color: #F97415;
+  width:130px;
+  border-radius: 10px;
+  color: white;
+  padding:10px 15px;
+  font-size: 14px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 700;
+  border: none;
+  margin-top: 30px;
+   cursor: pointer;
+  
+}
+
+.cover {
+  width: 50%;
+  padding: 40px;
+}
+
+.cover-image {
+  width:100%;
+  height: auto;
+}
+/*end of wel-cov*/
+
+/*products starts here*/
+
+.products {
+  text-align: center;
+  padding: 60px 40px;
+}
+.first-h2 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+  color: rgb(25, 3, 3);
+}
+
+
+.products-p1 {
+  font-size: 20px;
+  font-weight: 700;
+  color: rgb(65, 64, 64);
+  margin-top: 5px;
+}
+
+.all-items {
+  margin-top: 2px;
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.items {
+background-color: #F97415;
+  width:auto;
+  border-radius: 30px;
+  color: white;
+  padding:10px 10px;
+  font-size: 14px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
+  border: none;
+  margin-top: 30px;
+   cursor: pointer;
+}
+
+.mixed-cereals {
+  width:auto;
+  border-radius: 30px;
+  color: rgb(25, 3, 3);
+  padding:10px 15px;
+  font-size: 14px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
+  border: 1px solid #e5e5e5;
+  margin-top: 30px;
+   cursor: pointer;
+   transition: 0.3s;
+}
+.mixed-cereals:hover {
+  background-color: #F9D71C ;
+}
+
+.build-up {
+
+  width:auto;
+  border-radius: 30px;
+  color: rgb(25, 3, 3);
+  padding:10px 15px;
+  font-size: 14px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
+  border: 1px solid #e5e5e5;
+  margin-top: 30px;
+   cursor: pointer;
+   transition: 0.3s;
+}
+.build-up:hover {
+  background-color: #F9D71C ;
+}
+
+.flours {
+  width:90px;
+  border-radius: 30px;
+  color: rgb(25, 3, 3);
+  padding:10px 15px;
+  font-size: 14px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
+  border: 1px solid #e5e5e5;
+  margin-top: 30px;
+   cursor: pointer;
+   transition: 0.3s;
+}
+.flours:hover {
+  background-color: #F9D71C ;
+}
+/*all-items ended*/
+
+/*product-cards starts here*/
+
+.product-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+width: 100%;
+
+
+}
+ .product-cards img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+ }
+
+ .product-mix {
+  text-align: left;
+  line-height: 1.7;
+  border-radius:12px ;
+  padding: 15px;
+  overflow: hidden;
+  border: 1px solid #e5e5e5;
+  
+ }
+
+ .product-mix h3 {
+ color: rgb(25, 3, 3);
+ font-size: 17px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 500;
+ }
+
+ .product-mix p {
+  color: green;
+  font-size: 15px;
+  font-weight: 700;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ }
+
+ .product-mix .mix-p {
+  color: rgb(69, 67, 67); 
+  font-size: 14px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 400;
+  margin-top: 5px;
+  margin-bottom: 5px;
+ }
+
+ .product-mix button {
+  background-color: #F97415;
+  color: white;
+  border: none;
+  width: 100%;
+  border-radius: 12px;
+  padding: 8px 8px;
+  font-size: 15px;
+  font-weight: 600;
+  margin-top: 10px;
+   cursor: pointer;
+ }
+ /*products ends here*/
+
+ /* footer starts here*/
+
+ .footer {
+background-color: rgb(249, 246, 246);
+}
+
+ .overall-h2 {
+  
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 35px;
+  font-weight: 800;
+  color: rgb(25, 3, 3);
+  text-align: center;
+}
+ 
+
+.overall-p {
+  font-size: 20px;
+  font-weight: 700;
+  color: rgb(82, 82, 82);
+  margin: 5px auto 0;
+  max-width: 800px;
+text-align: center;
+}
+
+.contact {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 40PX;
+  gap: 40px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+
+
+.get-in{
+  grid-column: 1;
+  grid-row: 1;
+background-color: white;
+  padding: 30px;
+  border-radius: 15px;
+  border: 1px solid #e5e5e5;
+}
+
+.send-message {
+  grid-column: 2;
+grid-row: 1/3;
+  background-color: white;
+  padding: 30px;
+  border-radius: 15px;
+  border: 1px solid #e5e5e5;
+}
+
+.business-hours {
+  grid-column : 1;
+  grid-row: 2;
+  background: linear-gradient(#F97415, #FFD700, #F97415);
+  padding: 5px;
+  border-radius: 10px;
+  color: white;
+  width: 100%;
+  line-height: 2;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.get-in h2 {
+font-family: Arial, Helvetica, sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: rgb(25, 3, 3);
+  margin-bottom: 25px;
+}
+
+.get-in div{
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  grid-template-rows: auto auto;
+  column-gap: 15px;
+  margin-bottom: 20px;
+  transition: 0.3s;
+  row-gap: 4px;
+}
+
+.get-in div:hover {
+  transform: translateX(5px);
+}
+
+.get-in img {
+  width: 40px;
+  height: 40px;
+  grid-column: 1;
+  grid-row: 1/3;
+  padding: 10px;
+  background-color: rgb(245, 241, 239);
+  border-radius: 5px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: 0.3s;
+}
+
+.get-in div:hover img {
+  transform: scale(1.1);
+}
+
+.get-in h3 {
+  grid-column: 2;
+  grid-row: 1;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(21, 1, 1);
+  font-size: 16px;
+  font-weight: 550;
+
+}
+
+.get-in p {
+  font-family: Arial, Helvetica, sans-serif;
+    color: rgb(82, 82, 82);
+     font-size: 14px;
+  font-weight: 100;
+  margin-top: 7px;
+}
+
+
+
+.business-hours div {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.send-message h2 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: rgb(25, 3, 3);
+  margin-bottom: 25px;
+}
+
+.send-message form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.send-message input,
+.send-message textarea {
+  width: 100%;
+  padding: 12px;
+  margin-top: 8px;
+  color: rgb(82, 82, 82);
+  font-size: 15px;
+  font-weight: 100;
+  background-color: rgb(249, 246, 246);
+  border: 1px solid #e5e5e5;
+}
+
+.send-message textarea {
+  resize: none;
+  min-height: 120px;
+}
+
+.send-message button {
+  background-color: #F97415;
+color: white;
+  border: none;
+  width: 100%;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.send-message button:hover {
+  background-color: #FFD700;
+  color: rgb(25, 3, 3);
+  transform: translateY(-2px);
+}
