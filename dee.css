@@ -87,6 +87,37 @@ nav a {
   text-align: left;
   width: 50%;
   padding: 40px;
+  animation: welcomeSlide 6s ease-out;
+}
+
+.cover {
+  width: 50%;
+  padding: 40px;
+  animation: coverSlide 6s ease-out;
+}
+
+@keyframes welcomeSlide {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes coverSlide {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
  h1 {
@@ -488,3 +519,189 @@ color: white;
   color: rgb(25, 3, 3);
   transform: translateY(-2px);
 }
+
+/*end of footer*/
+
+/* beginning of media queries */
+
+
+/*nav queries*/
+@media (max-width: 768px) {
+nav {
+  flex-direction: row;
+  gap: 10px;
+  padding: 0, 10px;
+}
+
+.search {
+  width: 45%;
+}
+
+.logo {
+  width: 80px;
+}
+
+.open-logo {
+  width: 24px;
+  height: 24px;
+}
+
+.open {
+  font-size: 10px;
+}
+
+.cart-logo {
+  width: 28px;
+  height: 28px;
+}
+/*welcome section*/
+.wel-cov {
+  flex-direction: column;
+  gap: 20px;
+}
+.welcome {
+  width: 100%;
+}
+.cover {
+  width: 100%;
+  width: 100%;
+  padding: 0 15px;
+}
+
+
+h1{
+  font-size: 28px;
+}
+.welcome-p1 {
+  font-size: 17px;
+}.welcome-p2 {
+  font-size: 16px;
+}
+.shop-now {
+  margin-top: 10px;
+}
+/*products*/
+
+.products {
+  padding: 40px, 15px;
+}
+
+.first-h2{
+  font-size: 26px;
+}
+
+.products-p1 {
+  font-size: 16px;
+}
+
+.all-items {
+  flex-wrap: wrap;
+}
+
+.items,
+  .mixed-cereals,
+  .build-up,
+  .flours {
+    margin-top: 10px;
+  }
+  
+.product-cards {
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.product-cards img {
+  height: 200px;
+}
+
+.product-mix h3 {
+  font-weight: 600;
+}
+
+.product-mix {
+  line-height: 1.5;
+  padding: 12px;
+}
+
+.product-mix p:not(.mix-p) {
+  font-weight: 800;
+}
+
+.product-mix button {
+  padding: 10px;
+}
+/*footer section*/
+
+.contact {
+  grid-template-columns: 1fr;
+  padding: 20px 15px;
+  gap: 20px;
+}
+
+.get-in {
+  grid-column: 1;
+  grid-row: auto;
+  padding: 20px;
+}
+
+.send-message {
+  grid-column: 1;
+  grid-row: auto;
+  padding: 20px;
+}
+
+.business-hours {
+  grid-column: 1;
+  grid-row: auto;
+  padding: 15px;
+}
+
+.business-hours {
+  font-size: 16px;
+}
+
+.business-hours div {
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.get-in div {
+  margin-bottom: 15px;
+}
+
+.send-message input,
+.send-message textarea {
+  font-size: 16px;
+}
+
+.send-message button {
+  font-size: 16px;
+}
+
+.overall-h2 {
+  font-size: 28px;
+}
+
+.overall-p {
+  font-size: 16px;
+  font-size: 16px;
+  padding: 0 15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
