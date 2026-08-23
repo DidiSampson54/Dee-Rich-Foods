@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DeeRich Foods</title>
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
     <link rel="stylesheet" href="dee.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   </head>
   <body>
     <header class="header">
@@ -19,7 +21,9 @@
           <img src="search.png" alt="search" class="search-image">
         </div>
         <a href="" class="open"><img src="open.png" class="open-logo">Open Now</a>
-        <a href=""><img src="cart.png" alt="cart" class="cart-logo"></a>
+        <a href="#" id="cart-link"><img src="cart.png" alt="cart" class="cart-logo">
+          <span id="cart-count"></span>
+        </a>
       </nav>
     </header>
 
@@ -46,90 +50,125 @@
     <h2 class="first-h2">Our Products</h2>
 <p class="products-p1">We offer 100% natural cereals and flours. No chemicals, no fillers, just pure goodness.</p>
 <div class="all-items">
-<button class="items">All Items</button>
-<button class="mixed-cereals">Mixed cereal</button>
-<button class="build-up">Build-up Powders</button>
-<button class="flours">Flours</button>
+<button class="items category-button active">All Items</button>
+<button class="mixed-cereals category-button">Mixed cereal</button>
+<button class="build-up category-button">Build-up Powders</button>
+<button class="flours category-button">Flours</button>
     </div>
 
 
-<div class="product-cards">
-  <div class="product-mix">
+<div class="product-cards" id="products">
+  <div class="product-mix mixed-cereal" data-product="TomBrown">
     <img src="tombrown.jpg" alt="tombrown">
 <h3>TomBrown</h3>
 <p class="mix-p">Healthy Cereal mix for children and adults.</p>
-<p>300g — ₦2,000</p>
-<p>600g — ₦4,000</p>
-<p>800g — ₦10,500</p>
-<p>1.0kg — ₦12,500</p>
-<p>2.0kg — ₦25,000</p>
-  <button>+ Add to Cart</button>
+
+<label for="tombrown-size">Choose Size:</label>
+  <select id="tombrown-size">
+    <option value="2000">300g — ₦2,000</option>
+<option value="4000">600g — ₦4,000</option>
+<option value="10500">800g — ₦10,500</option>
+<option value="12500">1.0kg — ₦12,500</option>
+<option value="25000">2.0kg — ₦25,000</option>
+  </select>
+  <p class="selected-price">Price: ₦2,000</p>
+  <button class="add-to-cart" id="tombrown-cart">+ Add to Cart</button>
   </div>
 
-  <div class="product-mix">
+  <div class="product-mix build-up-product" data-product="Weight Gain Powder">
   <img src="weightgain.jpg" alt="weightgain-powder">
   <h3>Weight Gain Powder</h3>
   <p class="mix-p">100% natural, no artificial mix!</p>
-  <p>250g — ₦5,000</p>
-<p>400g — ₦6,500</p>
-<p>600g — ₦8,500</p>
-<p>800g — ₦10,500</p>
-<p>1.0kg — ₦12,500</p>
-<p>2.0kg — ₦25,000</p>
-   <button>+ Add to Cart</button>
+
+<label for="weightgain-size">Choose Size:</label>
+  <select id="weightgain-size">
+    <option value="5000">250g — ₦5,000</option>
+    <option value="6500">400g — ₦6,500</option>
+    <option value="8500">600g — ₦8,500</option>
+    <option value="10500">800g — ₦10,500</option>
+    <option value="12500">1kg — ₦12,500</option>
+    <option value="25000">2kg — ₦25,000</option>
+  </select>
+  <p class="selected-weight-price">Price: ₦5,000</p>
+   <button class="add-to-cart">+ Add to Cart</button>
    </div>
 
-   <div class="product-mix">
+   <div class="product-mix build-up-product" data-product="Protein Powder">
   <img src="protein.jpg" alt="protein-powder">
   <h3>Protein Powder</h3>
   <p class="mix-p">Healthy mix for fast build up.</p>
-<p>250g — ₦5,000</p>
-<p>400g — ₦6,500</p>
-<p>600g — ₦8,500</p>
-<p>800g — ₦10,500</p>
-<p>1.0kg — ₦12,500</p>
-<p>2.0kg — ₦25,000</p>
-   <button>+ Add to Cart</button>
+
+  <label for="protein-size">Choose Size:</label>
+  <select id="protein-size">
+    <option value="5000">250g — ₦5,000</option>
+    <option value="6500">400g — ₦6,500</option>
+    <option value="8500">600g — ₦8,500</option>
+    <option value="10500">800g — ₦10,500</option>
+    <option value="12500">1kg — ₦12,500</option>
+    <option value="25000">2kg — ₦25,000</option>
+  </select>
+  <p class="selected-protein-price">Price: ₦5,000</p>
+   <button class="add-to-cart">+ Add to Cart</button>
    </div>
 
-   <div class="product-mix">
+   <div class="product-mix build-up-product" data-product="Soybean Powder">
   <img src="soybeans.jpg" alt="soybeans-powder">
   <h3>Soybean Powder</h3>
   <p class="mix-p">Rich in protein and flavour!</p>
-  <p>Quarter custard — ₦3,500</p>
-<p>Half custard — ₦6,500</p>
-<p>Full custard — ₦13,000</p>
-   <button>+ Add to Cart</button>
+
+<label for="soybean-size">Choose Size:</label>
+  <select id="soybean-size">
+    <option value="3500">Quarter custard — ₦3,500</option>
+    <option value="6500">Half custard — ₦6,500</option>
+    <option value="13000">Full custard — ₦13,000</option>
+  </select>
+  <p class="selected-soybean-price">Price: ₦3,500</p>
+<button class="add-to-cart">+ Add to Cart</button>
    </div>
 
-   <div class="product-mix">
+   <div class="product-mix flour-product" data-product="Beans Flour">
   <img src="beans.jpg" alt="beans-flour">
   <h3>Beans Flour</h3>
   <p class="mix-p">Perfect for moi-moi and akara.</p>
-  <p>Quarter custard — ₦3,000</p>
-<p>Half custard — ₦5,500</p>
-<p>Full custard — ₦10,000</p>
-   <button>+ Add to Cart</button>
+
+  <label for="beans-size">Choose Size:</label>
+  <select id="beans-size">
+    <option value="3000">Quarter custard — ₦3,000</option>
+    <option value="5500">Half custard — ₦5,500</option>
+    <option value="10000">Full custard — ₦10,000</option>
+  </select>
+  <p class="selected-beans-price">Price: ₦3,000</p>
+   <button class="add-to-cart">+ Add to Cart</button>
    </div>
 
-   <div class="product-mix">
+   <div class="product-mix flour-product" data-product="Millet Flour">
    <img src="milletflour.jpg" alt="millet-flour">
    <h3>Millet Flour</h3>
    <p class="mix-p">Nutritious local grain flour.</p>
-   <p>Quarter custard — ₦3,500</p>
-<p>Half custard — ₦6,500</p>
-<p>Full custard — ₦13,000</p>
-    <button>+ Add to Cart</button>
+
+   <label for="millet-size">Choose Size:</label>
+  <select id="millet-size">
+    <option value="3500">Quarter custard — ₦3,500</option>
+    <option value="6500">Half custard — ₦6,500</option>
+    <option value="13000">Full custard — ₦13,000</option>
+  </select>
+  <p class="selected-millet-price">Price: ₦3,500</p>
+    <button class="add-to-cart">+ Add to Cart</button>
     </div>
 
-    <div class="product-mix">
+    <div class="product-mix flour-product" data-product="Wheat Flour">
 <img src="wheatflour.jpg" alt="wheat-flour">
 <h3>Wheat Flour</h3>
 <p class="mix-p">Healthy all purpose flour.</p>
-<p>Quarter custard — ₦3,750</p>
-<p>Half custard — ₦7,500</p>
-<p>Full custard — ₦15,000</p>
-<button>+ Add to Cart</button>
+
+<label for="wheat-size">Choose Size:</label>
+  <select id="wheat-size">
+    <option value="3750">Quarter custard — ₦3,750</option>
+    <option value="7500">Half custard — ₦7,500</option>
+    <option value="15000">Full custard — ₦15,000</option>
+  </select>
+  <p class="selected-wheat-price">Price: ₦3,750</p>
+<button class="add-to-cart">+ Add to Cart</button>
 </div>
 </div>
 </div>
@@ -198,7 +237,7 @@
             id="name"
             name="name"
             placeholder="Your Name"
-            
+            required
             >
 
             <label for="email"></label>
@@ -207,6 +246,7 @@
             id="email"
             name="email"
             placeholder="Your Email"
+            required
             >
 
             <label for="phone"></label>
@@ -215,6 +255,7 @@
             id="phone"
             name="phone"
             placeholder="Your Phone Number"
+            required
             >
 
             <label for="place"></label>
@@ -223,7 +264,7 @@
             id="place"
             name="place"
             placeholder="Your Location"
-            
+            required
             >
 
 
@@ -235,6 +276,12 @@
             rows="5"
             ></textarea>
             <button type="submit">Send Message</button>
+            <div id="message-notification">
+  <span class="message-check">✓</span>
+  <span class="message-notification-text">
+    Thank you, we will get back to you soon!
+  </span>
+  </div>
           </form>
         </div>
 
@@ -255,8 +302,59 @@
       </div>
     </footer>
 
+    <div id="cart-notification">
+      <span class="check-mark" id="notification-icon">✓</span>
+      <span class="notification-text">Product added to cart!</span>
+    </div>
+
+   <div id="cart-overlay"></div>
+
+<div id="cart-panel">
+
+  <div class="cart-header">
+
+    <div>
+      <h2>Shopping Cart</h2>
+
+      <p id="cart-message"></p>
+    </div>
+
+    <button id="close-cart">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+  </div>
+
+  <div id="cart-items">
+
+    <p class="empty-cart-message">
+      Your cart is empty 😔
+    </p>
+
+  </div>
+
+  <div class="cart-total">
+
+    <strong>Total:</strong>
+
+    <span id="cart-total">₦0</span>
+
+  </div>
+
+  <button id="checkout-button">
+    Proceed to Checkout
+  </button>
+
+</div>
+
+    </div>
 
 
+</div>
+
+
+
+    <script src="dee.js"></script>
 
 
 
