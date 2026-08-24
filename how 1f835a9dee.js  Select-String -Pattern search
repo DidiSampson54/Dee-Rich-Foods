@@ -1,0 +1,528 @@
+console.log('DeeRich Foods JavaScript is connected!');
+
+const categoryButtons = document.querySelectorAll('.category-button');
+
+const productCards = document.querySelectorAll('.product-mix');
+
+/* SHOP NOW BUTTON */
+
+const shopNow = document.querySelector('.shop-now');
+
+shopNow.addEventListener('click', function() {
+
+  const products = document.querySelector('#products');
+
+  window.scrollTo({
+    top: products.offsetTop,
+    behavior: 'smooth'
+  });
+
+});
+
+  
+
+
+    
+/* CATEGORY FILTERS */
+
+
+
+/* ALL ITEMS */
+
+const allItems = document.querySelector('.items');
+
+allItems.addEventListener('click', function() {
+
+  productCards.forEach(function(product) {
+
+    product.style.display = 'block';
+
+  });
+
+  categoryButtons.forEach(function(button) {
+
+    button.classList.remove('active');
+
+  });
+
+  allItems.classList.add('active');
+
+});
+
+
+/* MIXED CEREALS */
+
+const mixedCereals = document.querySelector('.mixed-cereals');
+
+mixedCereals.addEventListener('click', function() {
+
+  productCards.forEach(function(product) {
+
+    if (product.classList.contains('mixed-cereal')) {
+
+      product.style.display = 'block';
+
+    } else {
+
+      product.style.display = 'none';
+
+    }
+
+  });
+
+  categoryButtons.forEach(function(button) {
+
+    button.classList.remove('active');
+
+  });
+
+  mixedCereals.classList.add('active');
+
+});
+
+
+/* BUILD-UP POWDERS */
+
+const buildUpProduct = document.querySelector('.build-up');
+
+buildUpProduct.addEventListener('click', function() {
+
+  productCards.forEach(function(product) {
+
+    if (product.classList.contains('build-up-product')) {
+
+      product.style.display = 'block';
+
+    } else {
+
+      product.style.display = 'none';
+
+    }
+
+  });
+
+  categoryButtons.forEach(function(button) {
+
+    button.classList.remove('active');
+
+  });
+
+  buildUpProduct.classList.add('active');
+
+});
+
+
+/* FLOURS */
+
+const flourProduct = document.querySelector('.flours');
+
+flourProduct.addEventListener('click', function() {
+
+  productCards.forEach(function(product) {
+
+    if (product.classList.contains('flour-product')) {
+
+      product.style.display = 'block';
+
+    } else {
+
+      product.style.display = 'none';
+
+    }
+
+  });
+
+  categoryButtons.forEach(function(button) {
+
+    button.classList.remove('active');
+
+  });
+
+  flourProduct.classList.add('active');
+
+});
+
+
+/* PRODUCT SIZE AND PRICE */
+
+const productSizeSelectors =
+  document.querySelectorAll('.product-mix select');
+
+
+productSizeSelectors.forEach(function(select) {
+
+  const productCard =
+    select.closest('.product-mix');
+
+
+  const priceDisplay =
+    productCard.querySelector('.product-price');
+
+
+  function updatePrice() {
+
+    const price =
+      Number(select.value);
+
+
+    priceDisplay.textContent =
+      `Price: ₦${price.toLocaleString()}`;
+
+  }
+
+
+  select.addEventListener('change', updatePrice);
+
+});
+
+
+
+/* PRODUCT SIZE AND PRICE */
+
+
+productSizeSelectors.forEach(function(select) {
+
+  const productCard =
+    select.closest('.product-mix');
+
+
+  const priceDisplay =
+    productCard.querySelector(
+      '.selected-price, ' +
+      '.selected-weight-price, ' +
+      '.selected-protein-price, ' +
+      '.selected-soybean-price, ' +
+      '.selected-beans-price, ' +
+      '.selected-millet-price, ' +
+      '.selected-wheat-price'
+    );
+
+
+  function updatePrice() {
+
+    const price =
+      Number(select.value);
+
+
+    priceDisplay.textContent =
+      `Price: ₦${price.toLocaleString()}`;
+
+  }
+
+
+  select.addEventListener('change', updatePrice);
+
+});
+
+
+/*CART*/
+
+/*
+   This array stores everything added
+   to the shopping cart.
+*/
+
+const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+
+
+
+/*CART ELEMENTS*/
+
+const addToCartButtons =
+  document.querySelectorAll('.add-to-cart');
+
+const cartCount =
+  document.querySelector('#cart-count');
+
+const cartNotification =
+  document.querySelector('#cart-notification');
+
+const notificationText =
+  document.querySelector('.notification-text');
+
+const notificationIcon =
+  document.querySelector('#notification-icon');
+
+  if (cart.length > 0) {
+
+  cartCount.textContent = cart.reduce(function(total, product) {
+
+    return total + product.quantity;
+
+  }, 0);
+
+  cartCount.style.display = 'flex';
+
+}
+
+let notificationTimer;
+
+
+/*ADD TO CART */
+
+addToCartButtons.forEach(function(button) {
+
+  button.addEventListener('click', function() {
+
+    /*
+      Find the product card containing
+      the button that was clicked.
+    */
+
+    const productCard =
+      button.closest('.product-mix');
+
+
+    /*
+      Get product name from data-product.
+    */
+
+    const productName =
+      productCard.dataset.product;
+
+
+    /*
+      Find the select element inside
+      this particular product card.
+    */
+
+    const sizeSelect =
+      productCard.querySelector('select');
+
+
+    /*
+      Get the text of the selected option.
+    */
+
+    const selectedSize =
+      sizeSelect.options[sizeSelect.selectedIndex].text;
+
+
+    /*
+      Get the actual price from the option value.
+    */
+
+    const price =
+      Number(sizeSelect.value);
+
+
+    /*
+      Get the product image.
+    */
+
+    const productImage =
+      productCard.querySelector('img').src;
+
+
+    /*CHECK IF THIS PRODUCT + SIZE ALREADY EXISTS */
+
+    const existingProduct = cart.find(function(item) {
+
+      return item.name === productName &&
+             item.size === selectedSize;
+
+    });
+
+
+    /*IF IT EXISTS, INCREASE QUANTITY*/
+
+    if (existingProduct) {
+
+      existingProduct.quantity += 1;
+
+    }
+
+    /*OTHERWISE CREATE A NEW CART ITEM*/
+
+    else {
+
+      const product = {
+
+        name: productName,
+
+        image: productImage,
+
+        size: selectedSize,
+
+        price: price,
+
+        quantity: 1
+
+      };
+
+      cart.push(product);
+
+    }
+
+
+    /*UPDATE CART NUMBER*/
+
+    cartCount.textContent = cart.reduce(function(total, product) {
+
+      return total + product.quantity;
+
+    }, 0);
+
+   cartCount.style.display = 'flex';
+
+
+/* SAVE CART */
+
+localStorage.setItem('cart', JSON.stringify(cart));
+
+
+/*
+  Rebuild the cart display.
+*/
+
+displayCart();
+
+
+    console.log(cart);
+
+  });
+
+});
+
+
+/*CART NOTIFICATION */
+
+addToCartButtons.forEach(function(button) {
+
+  button.addEventListener('click', function() {
+
+    const productCard =
+      button.closest('.product-mix');
+
+    const productName =
+      productCard.dataset.product;
+
+
+    /*
+      Show check mark when adding.
+    */
+
+    notificationIcon.textContent = '✓';
+
+
+    notificationText.textContent =
+      `${productName} added to cart!`;
+
+
+    cartNotification.classList.add('show');
+
+
+    /*
+      Cancel previous timer.
+    */
+
+    clearTimeout(notificationTimer);
+
+
+    /*
+      Hide notification after 4 seconds.
+    */
+
+    notificationTimer = setTimeout(function() {
+
+      cartNotification.classList.remove('show');
+
+    }, 4000);
+
+  });
+
+});
+
+
+/* 
+   DISPLAY CART
+    */
+
+function displayCart() {
+
+  const cartItems =
+    document.querySelector('#cart-items');
+
+  const cartTotal =
+    document.querySelector('#cart-total');
+
+    const cartMessage =
+    document.querySelector('#cart-message');
+
+  /*
+    Empty the cart display first.
+
+    This is important because we are
+    rebuilding the cart every time.
+  */
+
+  cartItems.innerHTML = '';
+
+
+  /*
+    If there are no products...
+  */
+
+  if (cart.length === 0) {
+
+    cartItems.innerHTML =
+      '<p class="empty-cart-message">Your cart is empty 😔</p>';
+
+      cartMessage.textContent = '';
+
+    cartTotal.parentElement.style.display = 'none';
+
+    document.querySelector('#checkout-button').style.display = 'none';
+
+    return;
+  }
+
+const totalItems = cart.length;
+
+if (totalItems === 1) {
+
+  cartMessage.textContent = '1 item in your cart';
+
+} else {
+
+  cartMessage.textContent =
+    `${totalItems} items in your cart`;
+
+}
+  /*
+    If there ARE products,
+    show the total and checkout button.
+  */
+
+  cartTotal.parentElement.style.display = 'flex';
+
+  document.querySelector('#checkout-button').style.display = 'block';
+
+
+  /*
+    This variable will hold
+    the total price.
+  */
+
+  let total = 0;
+
+
+  /*
+    Go through every product
+    inside the cart array.
+  */
+
+  cart.forEach(function(product) {
+
+
+    /*
+      Calculate the total for this product.
+
+      Example:
+
+      price = ₦5,000
+      quantity = 3
+
+      5,000 × 3 = ₦15,000
+  

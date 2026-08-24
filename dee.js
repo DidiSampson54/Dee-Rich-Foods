@@ -25,9 +25,128 @@ shopNow.addEventListener('click', function() {
     
 /* CATEGORY FILTERS */
 
+/* SEARCH PRODUCTS */
+
+const searchInput = document.querySelector('.search-input');
+const searchButton = document.querySelector('.search-image');
+const productNotFound = document.querySelector('#product-not-found');
+
+function searchProducts() {
+
+  const searchText = searchInput.value.trim().toLowerCase();
+
+  let productFound = false;
+
+  productCards.forEach(function(product) {
+
+    const productName =
+      product.dataset.product.toLowerCase();
+
+    const productDescription =
+      product.querySelector('.mix-p').textContent.toLowerCase();
+
+    let productCategory = '';
+
+    if (product.classList.contains('mixed-cereal')) {
+
+      productCategory = 'mixed cereal mixed-cereals cereal';
+
+    } else if (product.classList.contains('build-up-product')) {
+
+      productCategory = 'build-up build-up powders powder powders';
+
+    } else if (product.classList.contains('flour-product')) {
+
+      productCategory = 'flour flours';
+
+    }
+
+    if (
+      searchText === '' ||
+      productName.includes(searchText) ||
+      productDescription.includes(searchText) ||
+      productCategory.includes(searchText)
+    ) {
+
+      product.style.display = 'block';
+      productFound = true;
+
+    } else {
+
+      product.style.display = 'none';
+
+    }
+
+  });
+
+  if (productFound) {
+
+    productNotFound.style.display = 'none';
+
+  } else {
+
+    productNotFound.style.display = 'block';
+
+    productNotFound.scrollIntoView({
+    behavior: 'smooth',
+    block: 'center'
+  });
+
+  }
+
+  if (productFound && searchText !== '') {
+
+    document.querySelector('#products').scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+
+  }
+
+}
 
 
-/* ALL ITEMS */
+/* SEARCH ICON */
+
+searchButton.addEventListener('click', function() {
+
+  searchProducts();
+
+});
+
+
+/* ENTER */
+
+searchInput.addEventListener('keydown', function(event) {
+
+  if (event.key === 'Enter') {
+
+    searchProducts();
+
+  }
+
+});
+
+
+/* CLEAR SEARCH */
+
+searchInput.addEventListener('input', function() {
+
+  if (searchInput.value.trim() === '') {
+
+    productCards.forEach(function(product) {
+
+      product.style.display = 'block';
+
+    });
+
+    productNotFound.style.display = 'none';
+
+  }
+
+});
+
+/*ALL ITEMS*/
 
 const allItems = document.querySelector('.items');
 
