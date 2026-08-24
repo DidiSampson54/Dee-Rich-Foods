@@ -27,7 +27,7 @@ function displayCheckoutItems() {
         Please add products to your cart before checking out.
       </p>
 
-      <a href="dee.html" class="back-to-shop">
+      <a href="index.html" class="back-to-shop">
         Back to Shop
       </a>
 
